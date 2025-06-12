@@ -1,0 +1,24 @@
+body {
+    background-color: rgb(126, 200, 80);
+}
+
+h1 {
+    font-family: 'Playfair Dance', cursive;
+    font-size: 2.5em;
+}
+
+div {
+    background-color: khaki;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.teras {
+    background-color: orange;
+    height: 300px;
+}
+
+.rumah {
+    background-color: purple;
+    height: 300px;
+}
