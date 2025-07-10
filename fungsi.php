@@ -12,7 +12,7 @@
         global $koneksi;
         $result = mysqli_query($koneksi, $query);
         if (!$result) {
-            // Tampilkan pesan error jika query gagal
+            
             die("Query error: " . mysqli_error($koneksi));
         }
         $rows = [];
