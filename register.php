@@ -46,6 +46,3 @@
         <input type="submit" value="Register">
     </form>
     <p>Sudah punya akun? <a href="login.html">Login disini</a></p>
-    
-
-   
