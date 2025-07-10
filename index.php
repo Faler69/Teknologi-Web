@@ -1,21 +1,11 @@
 <?php
-    
-    $koneksi = mysqli_connect("localhost:3307" ,"root" ,"" ,"webti_farel");
+    $koneksi = mysqli_connect("localhost:3307", "root", "", "webti");
 
-    if($koneksi)
+    if(!$koneksi)
     {
-        die("koneksi Gagal!" .mysqli_connect_error());
+        die("koneksi Gagal!" . mysqli_connect_error());
     }
-    else
-    {
-        echo "Koneksi Berhasil!";
-    }
-
 ?>
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -32,11 +22,14 @@
     <body>
         <h1 align="center">WEBSITE <br> TEKNOLOGI INFORMASI</h1>
         <hr width="50%" size="2px" color="black">
+        <center>
         <nav align="center">
             <a href="index.php">HOME </a> |
             <a href="profile.php">PROFILE</a> |
             <a href="about.php">ABOUT US</a> |
-            <a href="login.php">LOGIN</a> 
+            <a href="login.php">LOGIN</a> |
+            <a href="datamhs.php">DATA MAHASISWA</a> 
+            </center>
              
         </nav>
         <h1 align="center">
@@ -44,25 +37,37 @@
     </h1>
     <p>
         <b>Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa</b>
-         Fufufafa Fufufafa <i>Fufufafa Fufufafa Fufufafa Fufufafa</i>Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa 
-         <i><b><u>Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa</i></b></u>
+         Fufufafa Fufufafa <i>Fufufafa Fufufafa Fufufafa Fufufafa</i>Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa 
+         <i><b><u>Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa Fufufafa</i></b></u>
     </p>
         <h2>Daftar Belanja</h2>
         <ol>
-            <ll>Daging</ll>
-            <ul><li>Daging Ayam 2kg</li></ul>
-            <ul><li>Daging Sapi 3kg</li></ul>
-            <ul><li>Daging Kambing 2kg</li></ul>
-            <ll>Sayuran</ll>
-            <ul><li>Kubis</li></ul>
-            <ul><li>Terong</li></ul>
-            <ll>Minyak</ll>
-            <ul><li>Bimoli</li></ul>
-            <ul><li>Filma</li></ul>
-            <ll>Pakaian</ll>
-            <ul><li>Kaos</li></ul>
-            <ul><li>Celana</li></ul>
-            <ul><li>Jaket</li></ul>
+            <li>Daging
+                <ul>
+                    <li>Daging Ayam 2kg</li>
+                    <li>Daging Sapi 3kg</li>
+                    <li>Daging Kambing 2kg</li>
+                </ul>
+            </li>
+            <li>Sayuran
+                <ul>
+                    <li>Kubis</li>
+                    <li>Terong</li>
+                </ul>
+            </li>
+            <li>Minyak
+                <ul>
+                    <li>Bimoli</li>
+                    <li>Filma</li>
+                </ul>
+            </li>
+            <li>Pakaian
+                <ul>
+                    <li>Kaos</li>
+                    <li>Celana</li>
+                    <li>Jaket</li>
+                </ul>
+            </li>
         </ol>
     </body>
 </html>
