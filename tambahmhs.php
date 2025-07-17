@@ -27,7 +27,7 @@ if(isset($_POST['submit']))
 </head>
 <body>
     <h1>Tambah Data Mahasiswa</h1>
-    <form action="tambahmhs.php" method="post">
+    <form action="tambahmhs.php" method="post" enctype="multipart/form-data">
         <label>Nama:</label><br>
         <input type="text" name="nama" required><br>
         
@@ -39,6 +39,10 @@ if(isset($_POST['submit']))
         
         <label>No HP:</label><br>
         <input type="text" name="nohp" required><br><br>
+        
+        <label for="foto">Foto:</label><br>
+        <input type="file" name="foto" id="foto" required><br>
+        <br>
         
         <button type="submit" name="submit">Simpan Data</button>
     </form>
