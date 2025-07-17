@@ -12,7 +12,6 @@
         global $koneksi;
         $result = mysqli_query($koneksi, $query);
         if (!$result) {
-            
             die("Query error: " . mysqli_error($koneksi));
         }
         $rows = [];
@@ -31,8 +30,19 @@
         $nim = $data['nim'];
         $prodi = $data['jurusan'];
         $nohp = $data['nohp'];
+        
+        $file = isset($_FILES['foto']['name']) ? $_FILES['foto']['name'] : '';
+        $namefile = $file ? (date('dmy_His') . '_' . $file) : '';
+        $tmp = isset($_FILES['foto']['tmp_name']) ? $_FILES['foto']['tmp_name'] : '';
+        $folder = 'foto/';
+        $path = $folder . $namefile;
 
-        $query = "INSERT INTO mahasiswa (nama, nim, prodi, nohp) VALUES ('$nama', '$nim', '$prodi', '$nohp')";
+        if($file && $tmp && move_uploaded_file($tmp, $path)) {
+            $query = "INSERT INTO mahasiswa (foto, nama, nim, prodi, nohp) VALUES ('$namefile', '$nama', '$nim', '$prodi', '$nohp')";
+        } else {
+            $query = "INSERT INTO mahasiswa (nama, nim, prodi, nohp) VALUES ('$nama', '$nim', '$prodi', '$nohp')";
+        }
+
         mysqli_query($koneksi, $query);
         return mysqli_affected_rows($koneksi); 
     }
