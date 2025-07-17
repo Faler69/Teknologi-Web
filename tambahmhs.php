@@ -1,50 +1,55 @@
 <?php
-require 'fungsi.php';
-if(isset($_POST['submit'])) 
-{
-    if (tambahdatamhs($_POST)> 0) 
-    {
-        echo "<script>
-            alert('Data Mahasiswa Berhasil Ditambahkan!');
-            window.location.href = 'datamhs.php';
-            </script>";
-    } else {
-        echo "<script>
-            alert('Data Mahasiswa Gagal Ditambahkan!');
-            window.location.href = 'tambahmhs.php';
-            </script>";
-    }
-}
+
+require 'fungsi.php'; 
+
+$query = "SELECT * FROM mahasiswa";
+
+$rows = ambildata($query);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Mahasiswa</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DATA MAHASISWA</title>
+    </head>
 <body>
-    <h1>Tambah Data Mahasiswa</h1>
-    <form action="tambahmhs.php" method="post" enctype="multipart/form-data">
-        <label>Nama:</label><br>
-        <input type="text" name="nama" required><br>
-        
-        <label>NIM:</label><br>
-        <input type="text" name="nim" required><br>
-        
-        <label>Jurusan:</label><br>
-        <input type="text" name="jurusan" required><br>
-        
-        <label>No HP:</label><br>
-        <input type="text" name="nohp" required><br><br>
-        
-        <label for="foto">Foto:</label><br>
-        <input type="file" name="foto" id="foto" required><br>
-        <br>
-        
-        <button type="submit" name="submit">Simpan Data</button>
-    </form>
+    <h1>data mahasiswa</h1>
+    <a href="tambahmhs.php"><button>Tambah Data</button></a>
+    <br><br>
+    <table border="1" cellspacing="0" cellpadding="10px">
+        <tr>
+            <th>no</th>
+            <th>foto</th>
+            <th>nama</th>
+            <th>nim</th>
+            <th>jurusan</th>
+            <th>no. hp</th>
+            <th>aksi</th>
+        </tr>
+        <?php
+        $no = 1;
+        if (!empty($rows)) {
+            foreach($rows as $mhs) { ?>
+            <tr>
+                <td><?php echo $no++; ?></td>
+                <td><img src="foto/<?php echo $mhs["foto"]?>" width="100px"></td>
+                <td><?php echo $mhs["nama"]?></td>
+                <td><?php echo $mhs["nim"]?></td>
+                <td><?php echo $mhs["prodi"]?></td>
+                <td><?php echo $mhs["nohp"]?></td>
+                <td>
+                    <a href="hapusmhs.php?id=<?=$mhs['id']?>" 
+                     onclick="return confirm('yakin?')";>Hapus</a> |
+                    <a href="editmhs.php?id=<?=$mhs['id']?>">Edit</a>
+                </td>
+            </tr>
+        <?php }
+        } else { ?>
+            <tr>
+                <td colspan="6" align="center">Data tidak ada.</td>
+            </tr>
+        <?php } ?>
+    </table>
 </body>
 </html>
